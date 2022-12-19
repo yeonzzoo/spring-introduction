@@ -2,15 +2,20 @@ package com.example.introduction.service;
 
 import com.example.introduction.domain.Member;
 import com.example.introduction.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+        this.memberRepository =  memberRepository;
     }
 
     // 회원가입
